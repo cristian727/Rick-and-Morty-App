@@ -1,0 +1,37 @@
+<div class="card">
+  <div class="card-head">
+    <div class="card__character-img">
+      <img class="character__img" src="{{ character.image }}" />
+    </div>
+  </div>
+
+  <div class="card__body">
+    <h3 class="card__character-name">{{ character.name }}</h3>
+    <p class="card__text"></p>
+
+    <div class="card__character-data">
+      <div class="card__character-status">
+        <img
+          *ngIf="character.status === 'Alive'"
+          class="card__alive-icon"
+          src="../../../../assets/icons/alive.png"
+        />
+
+        <img
+          *ngIf="character.status === 'Dead'"
+          class="card__alive-icon"
+          src="../../../../assets/icons/skeleton.png"
+        />
+
+        <span>{{ character.status }}</span>
+      </div>
+
+      <div class="card__character-specie">
+        <span>{{ character.species }} - {{ character.gender }}</span>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="card__footer">
+    <p class="card__charcater"></p>
+  </div> -->
+</div>

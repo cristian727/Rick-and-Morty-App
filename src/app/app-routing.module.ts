@@ -1,28 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { IndexComponent } from './components/pages/index/index.component';
+import { IndexComponent } from './pages/index/index.component';
 
 const routes: Routes = [
+  {
+    path: 'characters',
+    loadChildren: () =>
+      import('./pages/characters/characters.module').then((m) => m.CharactersModule),
+  },
   { path: '', component: IndexComponent },
-  {
-    path: 'home',
-    loadChildren: () =>
-      import('./components/pages/home/home.module').then((m) => m.HomeModule),
-  },
-  {
-    path: 'character-lists',
-    loadChildren: () =>
-      import(
-        './components/pages/characters/characters-list/characters-list.module'
-      ).then((m) => m.CharactersListModule),
-  },
-  {
-    path: 'characters-details/:id',
-    loadChildren: () =>
-      import(
-        './components/pages/characters/characters-details/characters-details.module'
-      ).then((m) => m.CharactersDetailsModule),
-  },
 ];
 
 @NgModule({

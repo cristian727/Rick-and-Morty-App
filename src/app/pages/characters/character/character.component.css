@@ -1,0 +1,70 @@
+.card {
+  background: #14253d;
+  max-width: 350px;
+  padding: 24px;
+  border-radius: 15px;
+  box-shadow: 0px 20px 25px 15px rgba(0, 0, 0, 0.05),
+    0px 40px 30px 15px rgba(0, 0, 0, 0.1);
+  margin: 30px auto;
+}
+
+.card__character-img {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.card__character-img::after {
+  background: rgba(0, 255, 247, 0.5);
+  content: url(../../../../assets/icons/icon-view.svg);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: all 0 0.25s ease;
+}
+
+.card__character-img:hover::after {
+  opacity: 1;
+}
+
+.card__character-img .character__img {
+  width: 100%;
+  display: block;
+}
+
+.card__body {
+  padding: 23px 0;
+  border-bottom: 1px solid #2f415b;
+  margin-bottom: 15px;
+}
+
+.card__character-name {
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.card__character-data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff;
+}
+
+.card__character-status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #00fff7;
+}
+
+.card__alive-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 6px;
+}

@@ -1,0 +1,27 @@
+<section class="home__container">
+  <div class="home__img-container">
+    <img src="../../../assets/img/Rick and Morty logo.png" class="home__img" />
+  </div>
+
+  <p class="home__text">
+    Esta es mi aplicación angular consumiendo la
+    <a
+      class="home__text-link"
+      href="https://rickandmortyapi.com/"
+      target="_blank"
+      >API de Rick and Morty</a
+    >
+  </p>
+
+  <a
+    class="home__btn"
+    [routerLink]="['characters']"
+    [routerLinkActive]="['actived']"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    Vamos
+  </a>
+</section>
