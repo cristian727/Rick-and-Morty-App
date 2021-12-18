@@ -1,19 +1,23 @@
 .character__page {
   background-color: #0d192b;
+  overflow: inherit;
+  min-height: 100vh;
 }
 
 .characters__container {
+  min-height: 90vh;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
 
-.character__pager{
-  width: 100%;
+.character__pager {
+  max-width: 700px;
   display: flex;
   justify-content: space-around;
+  margin: auto;
 }
 
-.home__btn {
+.pager__btns {
   position: relative;
   display: inline-block;
   padding: 10px 25px;
@@ -27,26 +31,53 @@
   border: solid 2px #00b0c8;
 }
 
-.home__btn:hover {
+.pager__btns:hover {
   border: none;
   color: #255784;
   background: #00b0c8;
-  box-shadow: 0 0 10px #00b0c8, 0 0 20px #00b0c8, 0 0 40px #00b0c8;
-  /* transition-delay: 1s; */
+}
+
+.empty__button {
+  height: 38.7px;
+  width: 65.48px;
+}
+
+.pager__btns:focus html {
+  overflow: initial;
+}
+
+.charaters__pager-container {
+  height: auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.characters__pages {
+  padding: 10px 25px;
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {
-  .home__img {
-    width: 300px;
+  .characters__container {
+    grid-template-columns: 1fr;
   }
 
-  .home__text {
-    width: 350px;
-    font-size: 1rem;
+  .character__pager {
+    max-width: 350px;
   }
 
-  .home__btn {
-    padding: 10px 25px;
-    font-size: 1rem;
+  .pager__btns {
+    padding: 8px 15px;
+  }
+
+  .empty__button {
+    height: 34.7px;
+    width: 44.7px;
+  }
+
+  .characters__pages {
+    padding: 8px 15px;
+    cursor: pointer;
   }
 }

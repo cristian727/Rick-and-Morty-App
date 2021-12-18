@@ -12,11 +12,14 @@ import { CharactersService } from './services/characters.service';
 export class CharactersComponent implements OnInit {
   resAPI!: any;
   characters!: Character[];
+  nextCharacters!: Character[];
   anotherInfo!: Info;
   pageNum: number;
+  pages: number[];
 
   constructor(private characterSvc: CharactersService) {
     this.pageNum = 1;
+    this.pages = [1, 2, 3, 4, 5];
   }
 
   ngOnInit(): void {
@@ -39,10 +42,42 @@ export class CharactersComponent implements OnInit {
   nextPage() {
     this.pageNum += 1;
     this.getCharacters();
+    window.scrollTo(0, 0);
+    this.defPagesNumber();
   }
 
-  prevPage(){
+  prevPage() {
     this.pageNum -= 1;
     this.getCharacters();
+    window.scrollTo(0, 0);
+  }
+
+  goToPage(page: number) {
+    this.pageNum = page;
+    this.getCharacters();
+    window.scrollTo(0, 0);
+    this.defPagesNumber();
+  }
+
+  defPagesNumber() {
+    if (this.pageNum === 1) {
+      this.pages = [1, 2, 3, 4, 5];
+    } else {
+      if (this.pageNum === this.pages[4]) {
+        this.pages[0] = this.pages[3];
+        this.pages[1] = this.pages[4];
+        this.pages[2] = this.pages[1] + 1;
+        this.pages[3] = this.pages[2] + 1;
+        this.pages[4] = this.pages[3] + 1;
+      }
+
+      if (this.pageNum === this.pages[0]) {
+        this.pages[4] = this.pages[1];
+        this.pages[3] = this.pages[0];
+        this.pages[2] = this.pages[3] - 1;
+        this.pages[1] = this.pages[2] - 1;
+        this.pages[0] = this.pages[1] - 1;
+      }
+    }
   }
 }

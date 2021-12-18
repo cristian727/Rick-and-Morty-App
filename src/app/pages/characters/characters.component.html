@@ -7,23 +7,35 @@
   </div>
   <div class="character__pager">
     <a
-      class="home__btn"
+      class="pager__btns"
       [routerLink]="['characters']"
       [routerLinkActive]="['actived']"
       (click)="prevPage()"
       *ngIf="pageNum !== 1"
     >
-      Prev. Page
+      <
     </a>
 
     <a
-      class="home__btn"
+      class="empty__button"
+      *ngIf="pageNum === 1"
+    >
+      
+    </a>
+
+
+    <div class="charaters__pager-container" *ngFor="let page of pages">
+      <a [ngStyle]="{'color': pageNum === page ? '#00b0c8' : '#fff'}" class="characters__pages" (click)="goToPage(page)">{{ page }}</a>
+    </div>
+
+    <a
+      class="pager__btns"
       [routerLink]="['characters']"
       [routerLinkActive]="['actived']"
       (click)="nextPage()"
       *ngIf="pageNum !== 42"
     >
-      Next page
+      >
     </a>
   </div>
 </section>
