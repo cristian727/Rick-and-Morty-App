@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { tap } from 'rxjs/operators';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { take, tap } from 'rxjs/operators';
 import { Character } from './interface/character.interface';
 import { Info } from './interface/info.interface';
 import { CharactersService } from './services/characters.service';
@@ -16,14 +17,19 @@ export class CharactersComponent implements OnInit {
   anotherInfo!: Info;
   pageNum: number;
   pages: number[];
+  query!: string;
 
-  constructor(private characterSvc: CharactersService) {
+  constructor(
+    private characterSvc: CharactersService,
+    private route: ActivatedRoute
+  ) {
     this.pageNum = 1;
     this.pages = [1, 2, 3, 4, 5];
   }
 
   ngOnInit(): void {
     this.getCharacters();
+    this.getCharactersByQuery();
   }
 
   getCharacters() {
@@ -34,6 +40,23 @@ export class CharactersComponent implements OnInit {
           this.resAPI = resAPI;
           this.characters = this.resAPI.results;
           this.anotherInfo = this.resAPI.info;
+        })
+      )
+      .subscribe();
+  }
+
+  getCharactersByQuery(): void {
+    this.route.params.pipe(take(1)).subscribe((params) => {
+      this.query = params['q'];
+    });
+
+    this.characterSvc
+      .getCharacterByName(this.query)
+      .pipe(
+        tap((resApi) => {
+          console.log(resApi);
+          this.resAPI = resApi;
+          this.characters = this.resAPI.results;
         })
       )
       .subscribe();

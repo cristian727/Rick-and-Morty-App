@@ -8,15 +8,19 @@ import { Character } from '../interface/character.interface';
   providedIn: 'root',
 })
 export class CharactersService {
-  private charactersURL = apiURLs.characters;
-  private characterURL = apiURLs.character;
+  private charactersURL = apiURLs;
+
   constructor(private http: HttpClient) {}
 
   getCharacters(pageNum: number): Observable<Character[]> {
-    return this.http.get<Character[]>(`${this.charactersURL}${pageNum}`);
+    return this.http.get<Character[]>(`${this.charactersURL.characters}${pageNum}`);
   }
 
   getCharacter(id: number): Observable<Character> {
-    return this.http.get<Character>(`${this.characterURL}${id}`);
+    return this.http.get<Character>(`${this.charactersURL.character}${id}`);
+  }
+
+  getCharacterByName(name : string): Observable<Character[]>{
+    return this.http.get<Character[]>(`${this.charactersURL.charactersByName}${name}`)
   }
 }
