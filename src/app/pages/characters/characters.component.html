@@ -16,24 +16,26 @@
       <
     </a>
 
-    <a
-      class="empty__button"
-      *ngIf="pageNum === 1"
-    >
-      
-    </a>
-
+    <a class="empty__button" *ngIf="pageNum === 1"> </a>
 
     <div class="charaters__pager-container" *ngFor="let page of pages">
-      <a [ngStyle]="{'color': pageNum === page ? '#00b0c8' : '#fff'}" class="characters__pages" (click)="goToPage(page)">{{ page }}</a>
+      <a
+        *ngIf="page <= anotherInfo.pages"
+        [ngStyle]="{ color: pageNum === page ? '#00b0c8' : '#fff' }"
+        class="characters__pages"
+        (click)="goToPage(page)"
+        >{{ page }}</a
+      >
     </div>
+
+    <a class="empty__button" *ngIf="pageNum === anotherInfo.pages"> </a>
 
     <a
       class="pager__btns"
       [routerLink]="['characters']"
       [routerLinkActive]="['actived']"
       (click)="nextPage()"
-      *ngIf="pageNum !== 42"
+      *ngIf="pageNum !== anotherInfo.pages"
     >
       >
     </a>

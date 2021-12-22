@@ -12,15 +12,24 @@ export class CharactersService {
 
   constructor(private http: HttpClient) {}
 
-  getCharacters(pageNum: number): Observable<Character[]> {
-    return this.http.get<Character[]>(`${this.charactersURL.characters}${pageNum}`);
+  getCharacters(
+    pageNum: number,
+    name = '',
+    status = '',
+    species = '',
+    type = '',
+    gender = ''
+  ): Observable<Character[]> {
+    return this.http.get<Character[]>(
+      `${this.charactersURL.characters}${pageNum}&name=${name}&status=${status}&specie=${species}&type=${type}&gender=${gender}`
+    );
   }
 
   getCharacter(id: number): Observable<Character> {
     return this.http.get<Character>(`${this.charactersURL.character}${id}`);
   }
 
-  getCharacterByName(name : string): Observable<Character[]>{
-    return this.http.get<Character[]>(`${this.charactersURL.charactersByName}${name}`)
-  }
+  // getCharacterByName(name : string): Observable<Character[]>{
+  //   return this.http.get<Character[]>(`${this.charactersURL.charactersByName}${name}`)
+  // }
 }
