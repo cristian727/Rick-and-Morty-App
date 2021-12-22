@@ -4,7 +4,6 @@ import {
   Output,
   EventEmitter,
   ChangeDetectionStrategy,
-  OnInit,
 } from '@angular/core';
 import { Character } from '../interface/character.interface';
 
@@ -17,8 +16,4 @@ import { Character } from '../interface/character.interface';
 export class CharacterComponent {
   @Input() character!: Character;
   @Output() seeCharacterDetails = new EventEmitter<Character>();
-
-  onClick() {
-    this.seeCharacterDetails.emit(this.character);
-  }
 }

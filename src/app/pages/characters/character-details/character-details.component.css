@@ -1,7 +1,7 @@
 .character-detail__container {
   width: 100vw;
   height: 100vh;
-  background-color: #0d192b;
+  background-color: var(--dark-blue-color);
   display: flex;
   justify-content: center;
   

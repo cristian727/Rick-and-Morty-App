@@ -1,5 +1,5 @@
 .card {
-  background: #14253d;
+  background: var(--dark-blue-color-card);
   max-width: 350px;
   padding: 24px;
   border-radius: 15px;
@@ -38,12 +38,12 @@
 
 .card__body {
   padding: 23px 0;
-  border-bottom: 1px solid #2f415b;
+  border-bottom: 1px solid var(--grey-line);
   margin-bottom: 15px;
 }
 
 .card__character-name {
-  color: #ffffff;
+  color: var(--white);
   font-size: 22px;
   font-weight: bold;
   margin-bottom: 15px;
@@ -53,14 +53,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #ffffff;
+  color: var(--white);
 }
 
 .card__character-status {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #00fff7;
+  color: var(--light-blue);
 }
 
 .card__alive-icon {
@@ -82,17 +82,17 @@
 }
 
 .card__detail-title {
-  color: #6a85af;
+  color: var(--grey-title);
   font-weight: 400;
 }
 
 .card__detail-text {
-  color: #fff;
+  color: var(--white);
   text-decoration: none;
 }
 
 .card__detail-text:hover {
-  color: #00fff7;
+  color: var(--light-blue);
 }
 
 @media (max-width: 768px) {

@@ -1,5 +1,5 @@
 .character__page {
-  background-color: #0d192b;
+  background-color: var(--dark-blue-color);
   overflow: inherit;
   min-height: 100vh;
 }

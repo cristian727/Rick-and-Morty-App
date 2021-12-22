@@ -13,7 +13,6 @@ export class CharacterDetailsComponent implements OnInit {
   character!: Character;
 
   constructor(
-    private router: Router,
     private route: ActivatedRoute,
     private characterSvc: CharactersService
   ) {}
@@ -25,7 +24,7 @@ export class CharacterDetailsComponent implements OnInit {
     });
   }
 
-  getCharacter(id: number) {
+  private getCharacter(id: number): void {
     this.characterSvc
       .getCharacter(id)
       .pipe(

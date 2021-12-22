@@ -18,6 +18,15 @@
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
+
+  --dark-blue-color: #0d192b;
+  --dark-blue-color-card: #14253d;
+  --white: #fff;
+  --light-blue: #00fff7;
+  --grey-title: #6a85af;
+  --grey-line: #2f415b;
+  --light-blue-btn: #00b0c8;
+  --grey-boder-btn: #255784;
 }
 
 /* Sections

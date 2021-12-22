@@ -9,21 +9,22 @@
   position: relative;
   display: inline-block;
   padding: 10px 25px;
-  color: #00b0c8;
+  color: var(--light-blue-btn);
   text-transform: uppercase;
   letter-spacing: 4px;
   text-decoration: none;
-  font-size: .8rem;
+  font-size: 0.8rem;
   overflow: hidden;
   transition: 0.2s;
-  border: solid 2px #00b0c8;
+  border: solid 2px var(--light-blue-btn);
 }
 
 .home__btn:hover {
   border: none;
-  color: #255784;
-  background: #00b0c8;
-  box-shadow: 0 0 10px #00b0c8, 0 0 20px #00b0c8, 0 0 40px #00b0c8;
+  color: var(--grey-boder-btn);
+  background: var(--light-blue-btn);
+  box-shadow: 0 0 10px var(--light-blue-btn), 0 0 20px var(--light-blue-btn),
+    0 0 40px var(--light-blue-btn);
   /* transition-delay: 1s; */
 }
 

@@ -1,7 +1,7 @@
 .footer {
   width: 100%;
   height: 50px;
-  background-color: #14253d;
+  background-color: var(--dark-blue-color-card);
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -20,12 +20,12 @@
 }
 
 .footer__title {
-  color: #6a85af;
+  color: var(--grey-title);
   font-weight: 400;
 }
 
 .footer__text {
-  color: #fff;
+  color: var(--white);
   text-decoration: none;
 }
 
@@ -34,5 +34,5 @@
 }
 
 .footer__link:hover {
-  color: #00fff7;
+  color: var(--light-blue);
 }

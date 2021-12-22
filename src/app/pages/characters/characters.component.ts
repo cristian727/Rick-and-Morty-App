@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { take, tap } from 'rxjs/operators';
 import { Character } from './interface/character.interface';
 import { Info } from './interface/info.interface';
@@ -32,7 +32,7 @@ export class CharactersComponent implements OnInit {
     this.getCharactersByQuery();
   }
 
-  getCharacters() {
+  private getCharacters(): void {
     this.characterSvc
       .getCharacters(this.pageNum)
       .pipe(
@@ -45,7 +45,7 @@ export class CharactersComponent implements OnInit {
       .subscribe();
   }
 
-  getCharactersByQuery(): void {
+  private getCharactersByQuery(): void {
     this.route.params.pipe(take(1)).subscribe((params) => {
       this.query = params['q'];
     });
@@ -62,27 +62,27 @@ export class CharactersComponent implements OnInit {
       .subscribe();
   }
 
-  nextPage() {
+  public nextPage(): void {
     this.pageNum += 1;
     this.getCharacters();
     window.scrollTo(0, 0);
     this.defPagesNumber();
   }
 
-  prevPage() {
+  public prevPage(): void {
     this.pageNum -= 1;
     this.getCharacters();
     window.scrollTo(0, 0);
   }
 
-  goToPage(page: number) {
+  public goToPage(page: number): void {
     this.pageNum = page;
     this.getCharacters();
     window.scrollTo(0, 0);
     this.defPagesNumber();
   }
 
-  defPagesNumber() {
+  private defPagesNumber() {
     if (this.pageNum === 1) {
       this.pages = [1, 2, 3, 4, 5];
     } else {
