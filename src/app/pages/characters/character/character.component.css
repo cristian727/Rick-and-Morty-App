@@ -1,6 +1,7 @@
 .card {
   background: var(--dark-blue-color-card);
   max-width: 350px;
+  height: 575px;
   padding: 24px;
   border-radius: 15px;
   box-shadow: 0px 20px 25px 15px rgba(0, 0, 0, 0.05),
@@ -12,19 +13,6 @@
   position: relative;
   border-radius: 8px;
   overflow: hidden;
-  cursor: pointer;
-}
-
-.card__character-img::after {
-  background: rgba(0, 255, 247, 0.5);
-  content: url(../../../../assets/icons/icon-view.svg);
-  position: absolute;
-  inset: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: all 0 0.25s ease;
 }
 
 .card__character-img:hover::after {
@@ -91,10 +79,6 @@
   text-decoration: none;
 }
 
-.card__detail-text:hover {
-  color: var(--light-blue);
-}
-
 @media (max-width: 768px) {
   .card {
     max-width: 280px;
@@ -110,5 +94,10 @@
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 15px;
+  }
+
+  .card__body,
+  .card__details {
+    font-size: 15px;
   }
 }

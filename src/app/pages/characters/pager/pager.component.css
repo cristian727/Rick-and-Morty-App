@@ -1,45 +1,72 @@
-.pager__container {
-  width: 100%;
-  height: auto;
+.character__pager {
+  max-width: 700px;
   display: flex;
   justify-content: space-around;
+  margin: auto;
 }
 
-.home__btn {
+.pager__btns {
   position: relative;
   display: inline-block;
   padding: 10px 25px;
-  color: var(--light-blue-btn);
+  color: #00b0c8;
   text-transform: uppercase;
   letter-spacing: 4px;
   text-decoration: none;
   font-size: 0.8rem;
   overflow: hidden;
   transition: 0.2s;
-  border: solid 2px var(--light-blue-btn);
+  border: solid 2px #00b0c8;
 }
 
-.home__btn:hover {
+.pager__btns:hover {
   border: none;
-  color: var(--grey-boder-btn);
-  background: var(--light-blue-btn);
-  box-shadow: 0 0 10px var(--light-blue-btn), 0 0 20px var(--light-blue-btn),
-    0 0 40px var(--light-blue-btn);
-  /* transition-delay: 1s; */
+  color: #255784;
+  background: #00b0c8;
+}
+
+.empty__button {
+  height: 38.7px;
+  width: 65.48px;
+}
+
+.pager__btns:focus html {
+  overflow: initial;
+}
+
+.charaters__pager-container {
+  height: auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.characters__pages {
+  padding: 10px 25px;
+  cursor: pointer;
+}
+
+.characters__goUp-btb {
+  margin: 10px 0;
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {
-  .home__img {
-    width: 300px;
+  .character__pager {
+    max-width: 350px;
   }
 
-  .home__text {
-    width: 350px;
-    font-size: 1rem;
+  .pager__btns {
+    padding: 8px 15px;
   }
 
-  .home__btn {
-    padding: 10px 25px;
-    font-size: 1rem;
+  .empty__button {
+    height: 34.7px;
+    width: 44.7px;
+  }
+
+  .characters__pages {
+    padding: 8px 15px;
+    cursor: pointer;
   }
 }

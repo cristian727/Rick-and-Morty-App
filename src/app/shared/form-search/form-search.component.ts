@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
       type="text"
       placeholder="Search..."
       (keyup)="onSearch(inputSearch.value)"
+      class="searchbar"
     />
   `,
   styleUrls: ['./form-search.component.css'],
@@ -22,7 +23,7 @@ export class FormSearchComponent implements OnInit {
   onSearch(value: string) {
     if (value && value.length > 3) {
       this.router.navigate(['/characters'], {
-        queryParams: { q: value },
+        queryParams: { name: value },
       });
     }
   }

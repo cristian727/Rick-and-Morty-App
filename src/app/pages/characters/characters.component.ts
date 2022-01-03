@@ -13,14 +13,10 @@ import { CharactersService } from './services/characters.service';
 export class CharactersComponent implements OnInit {
   resAPI!: any;
   characters!: Character[];
-  nextCharacters!: Character[];
   anotherInfo!: Info;
   pageNum: number;
-  pages: number[];
   name!: string;
   status!: string;
-  species!: string;
-  type!: string;
   gender!: string;
 
   constructor(
@@ -29,7 +25,6 @@ export class CharactersComponent implements OnInit {
     private router: Router
   ) {
     this.pageNum = 1;
-    this.pages = [1, 2, 3, 4, 5];
     this.onUrlChange();
   }
 
@@ -39,14 +34,7 @@ export class CharactersComponent implements OnInit {
 
   private getCharacters(): void {
     this.characterSvc
-      .getCharacters(
-        this.pageNum,
-        this.name,
-        this.status,
-        this.species,
-        this.type,
-        this.gender
-      )
+      .getCharacters(this.pageNum, this.name, this.status, this.gender)
       .pipe(take(1))
       .subscribe((resAPI) => {
         this.resAPI = resAPI;
@@ -57,7 +45,10 @@ export class CharactersComponent implements OnInit {
 
   private getCharactersByQuery(): void {
     this.route.queryParams.pipe(take(1)).subscribe((params) => {
-      this.name = params['q'];
+      this.name = params['name'];
+      this.status = params['status'];
+      this.gender = params['gender'];
+      this.pageNum = params['page'];
       this.getCharacters();
     });
   }
@@ -67,52 +58,12 @@ export class CharactersComponent implements OnInit {
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe(() => {
         this.characters = [];
-        console.log('sí estoy pasando', this.characters);
         this.getCharactersByQuery();
         this.pageNum = 1;
-        this.pages = [1, 2, 3, 4, 5];
       });
   }
 
-  public nextPage(): void {
-    this.pageNum += 1;
-    this.getCharacters();
+  public goUp() {
     window.scrollTo(0, 0);
-    this.defPagesNumber();
-  }
-
-  public prevPage(): void {
-    this.pageNum -= 1;
-    this.getCharacters();
-    window.scrollTo(0, 0);
-  }
-
-  public goToPage(page: number): void {
-    this.pageNum = page;
-    this.getCharacters();
-    window.scrollTo(0, 0);
-    this.defPagesNumber();
-  }
-
-  private defPagesNumber() {
-    if (this.pageNum === 1) {
-      this.pages = [1, 2, 3, 4, 5];
-    } else {
-      if (this.pageNum === this.pages[4]) {
-        this.pages[0] = this.pages[3];
-        this.pages[1] = this.pages[4];
-        this.pages[2] = this.pages[1] + 1;
-        this.pages[3] = this.pages[2] + 1;
-        this.pages[4] = this.pages[3] + 1;
-      }
-
-      if (this.pageNum === this.pages[0]) {
-        this.pages[4] = this.pages[1];
-        this.pages[3] = this.pages[0];
-        this.pages[2] = this.pages[3] - 1;
-        this.pages[1] = this.pages[2] - 1;
-        this.pages[0] = this.pages[1] - 1;
-      }
-    }
   }
 }

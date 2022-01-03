@@ -1,13 +1,8 @@
 <div class="card">
   <div class="card-head">
-    <a
-      [routerLink]="['details', character.id]"
-      [routerLinkActive]="['actived']"
-    >
-      <div class="card__character-img">
-        <img class="character__img" src="{{ character.image }}" />
-      </div>
-    </a>
+    <div class="card__character-img">
+      <img class="character__img" src="{{ character.image }}" />
+    </div>
   </div>
 
   <div class="card__body">
@@ -57,10 +52,7 @@
   </div>
 
   <div class="card__details">
-    <img
-      class="card__detail-icon"
-      src="../../../../assets/icons/chapter.png"
-    />
+    <img class="card__detail-icon" src="../../../../assets/icons/chapter.png" />
     <p class="card__detail-title">
       Episodes:
       <a class="card__detail-text">{{ character.episode.length }}</a>

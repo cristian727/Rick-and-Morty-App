@@ -1,18 +1,9 @@
-<div class="header">
-  <a  [routerLink]="['characters']"
-  [routerLinkActive]="['actived']"> Rick and Morty App </a>
+<div class="header" *ngIf="visibility">
+  <a [routerLink]="['']" [routerLinkActive]="['actived']" class="header__title">
+    Rick and Morty App
+  </a>
 
-  <div>
-    <form>
-      Status
-      <select>
-        <option>Select</option>
-        <option>Alive</option>
-        <option>Dead</option>
-        <option>Unknown</option>
-      </select>
-    </form>
-  </div>
+  <app-filters></app-filters>
 
   <app-form-search></app-form-search>
 </div>

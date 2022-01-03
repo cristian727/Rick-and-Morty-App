@@ -36,3 +36,10 @@
 .footer__link:hover {
   color: var(--light-blue);
 }
+
+@media (max-width: 768px) {
+  .footer{
+    height: 120px;
+    flex-direction: column;
+  }
+}

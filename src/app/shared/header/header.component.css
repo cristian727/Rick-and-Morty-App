@@ -6,3 +6,20 @@
   justify-content: space-around;
   align-items: center;
 }
+
+.header__title {
+  font-size: 22px;
+  text-decoration: none;
+  color: var(--white);
+}
+
+.header__title:hover {
+  color: var(--light-blue);
+}
+
+@media (max-width: 768px) {
+  .header {
+    height: 150px;
+    flex-direction: column;
+  }
+}

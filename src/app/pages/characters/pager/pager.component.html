@@ -1,17 +1,35 @@
-<div class="pager__container">
+<div class="character__pager">
   <a
-    class="home__btn"
+    class="pager__btns"
     [routerLink]="['characters']"
     [routerLinkActive]="['actived']"
+    (click)="prevPage()"
+    *ngIf="pageNum !== 1"
   >
-    Prev. Page
+    <
   </a>
 
+  <a class="empty__button" *ngIf="pageNum === 1"> </a>
+
+  <div class="charaters__pager-container" *ngFor="let page of pages">
+    <a
+      *ngIf="page <= anotherInfo.pages"
+      [ngStyle]="{ color: pageNum === page ? '#00b0c8' : '#fff' }"
+      class="characters__pages"
+      (click)="goToPage(page)"
+      >{{ page }}</a
+    >
+  </div>
+
+  <a class="empty__button" *ngIf="pageNum === anotherInfo.pages"> </a>
+
   <a
-    class="home__btn"
+    class="pager__btns"
     [routerLink]="['characters']"
     [routerLinkActive]="['actived']"
+    (click)="nextPage()"
+    *ngIf="pageNum !== anotherInfo.pages"
   >
-    Next page
+    >
   </a>
 </div>

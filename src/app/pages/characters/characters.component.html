@@ -1,3 +1,7 @@
+<header>
+  <app-header></app-header>
+</header>
+
 <section class="character__page">
   <div class="characters__container">
     <app-character
@@ -5,39 +9,10 @@
       *ngFor="let character of characters"
     ></app-character>
   </div>
-  <div class="character__pager">
-    <a
-      class="pager__btns"
-      [routerLink]="['characters']"
-      [routerLinkActive]="['actived']"
-      (click)="prevPage()"
-      *ngIf="pageNum !== 1"
-    >
-      <
-    </a>
 
-    <a class="empty__button" *ngIf="pageNum === 1"> </a>
+  <app-pager [anotherInfo]="anotherInfo"></app-pager>
 
-    <div class="charaters__pager-container" *ngFor="let page of pages">
-      <a
-        *ngIf="page <= anotherInfo.pages"
-        [ngStyle]="{ color: pageNum === page ? '#00b0c8' : '#fff' }"
-        class="characters__pages"
-        (click)="goToPage(page)"
-        >{{ page }}</a
-      >
-    </div>
-
-    <a class="empty__button" *ngIf="pageNum === anotherInfo.pages"> </a>
-
-    <a
-      class="pager__btns"
-      [routerLink]="['characters']"
-      [routerLinkActive]="['actived']"
-      (click)="nextPage()"
-      *ngIf="pageNum !== anotherInfo.pages"
-    >
-      >
-    </a>
+  <div class="characters__goUp-btb">
+    <a class="pager__btns" (click)="goUp()"> Go up </a>
   </div>
 </section>

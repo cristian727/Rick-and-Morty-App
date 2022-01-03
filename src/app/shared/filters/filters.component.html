@@ -1,0 +1,39 @@
+<div class="filters__container">
+  <form class="filters" #filtersForm="ngForm">
+    <div>
+      <select
+        id="status"
+        name="status"
+        [(ngModel)]="status"
+        class="filters__select"
+      >
+        <option [value]="''">Status</option>
+        <option [value]="'alive'">Alive</option>
+        <option [value]="'dead'">Dead</option>
+        <option [value]="'unknown'">Unknown</option>
+      </select>
+    </div>
+
+    <div>
+      <select
+        id="gender"
+        name="gender"
+        [(ngModel)]="gender"
+        class="filters__select"
+      >
+        <option [value]="''">Gender</option>
+        <option [value]="'female'">Female</option>
+        <option [value]="'male'">Male</option>
+        <option [value]="'genderless'">Genderless</option>
+        <option [value]="'unknown'">Unknown</option>
+      </select>
+    </div>
+
+    <input
+      type="submit"
+      value="Find"
+      (click)="onSubmit()"
+      class="filters__button"
+    />
+  </form>
+</div>
